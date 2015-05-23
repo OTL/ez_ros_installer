@@ -18,7 +18,9 @@ do
 	w) WHAT=${OPTARG}
 	    ;;
 	c) CATKIN_WS=${OPTARG}
+	    ;;
 	h) usage
+	    ;;
     esac
 done
 
