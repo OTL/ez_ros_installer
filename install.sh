@@ -2,11 +2,11 @@
 
 usage() {
     echo "Usage: $0 [-d distro] [-w what] [-c catkin_ws]" 1>&2
-    echo "  for example) $0 -d indigo -w desktop-full -c ~/catkin_ws" 1>&2
+    echo "  for example) $0 -d kinetic -w desktop-full -c ~/catkin_ws" 1>&2
     exit 1
 }
 
-DISTRO=indigo
+DISTRO=kinetic
 CATKIN_WS=~/catkin_ws
 WHAT=desktop-full
 

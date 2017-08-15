@@ -18,7 +18,7 @@ $ ./install.sh
 
 ### Options
 
-You can set ROS distro (indigo/jade/k***), install object (desktop-full/desktop/ros_comm/...), and
+You can set ROS distro (kinetic/lunar/...), install object (desktop-full/desktop/ros_comm/...), and
 catkin workspace (default ~/catkin_ws)
 
 ```bash
