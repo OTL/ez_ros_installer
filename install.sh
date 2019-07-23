@@ -1,16 +1,17 @@
 #/bin/bash -x
 
 usage() {
-    echo "Usage: $0 [-d distro] [-w what] [-c catkin_ws]" 1>&2
+    echo "Usage: $0 [-d distro] [-w what] [-c catkin_ws] [-o(do not use catkin tools)]" 1>&2
     echo "  for example) $0 -d kinetic -w desktop-full -c ~/catkin_ws" 1>&2
     exit 1
 }
 
-DISTRO=kinetic
+DISTRO=melodic
 CATKIN_WS=~/catkin_ws
 WHAT=desktop-full
+CATKIN_TOOLS=true
 
-while getopts d:w:c: OPT
+while getopts d:w:c:o OPT
 do
     case ${OPT} in
 	d) DISTRO=${OPTARG}
@@ -18,7 +19,9 @@ do
 	w) WHAT=${OPTARG}
 	    ;;
 	c) CATKIN_WS=${OPTARG}
-	    ;;
+	   ;;
+	o) CATKIN_TOOLS=false
+           ;;
 	h) usage
 	    ;;
     esac
@@ -34,15 +37,20 @@ fi
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 sudo apt-get update
-sudo apt-get install ros-"${DISTRO}"-"${WHAT}" python-rosinstall
+sudo apt-get install ros-"${DISTRO}"-"${WHAT}" python-rosinstall python-catkin-tools
 sudo rosdep init
 rosdep update
 
 source /opt/ros/"${DISTRO}"/setup.bash
 
 mkdir -p "${CATKIN_WS}"/src
-(cd "${CATKIN_WS}"/src; catkin_init_workspace)
-(cd "${CATKIN_WS}"; catkin_make)
+
+if [[ ${CATKIN_TOOLS} == "true" ]]; then
+    (cd "${CATKIN_WS}"; catkin build)
+else
+    (cd "${CATKIN_WS}"/src; catkin_init_workspace)
+    (cd "${CATKIN_WS}"; catkin_make)
+fi
 
 source "${CATKIN_WS}"/devel/setup.bash
 

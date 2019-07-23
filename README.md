@@ -4,6 +4,7 @@ easy ROS installer. This do below.
 
 * install ROS
 * create catkin_ws
+* install catkin tools
 * update ~/.bashrc
 
 After you run this script, you can start creating your program in ~/catkin_ws/src.
