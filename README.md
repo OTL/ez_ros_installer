@@ -1,6 +1,6 @@
 # ez_ros_installer
 
-easy ROS installer. This do below.
+easy ROS installer. This do below. (ROS noetic (python3) is not supported)
 
 * install ROS
 * create catkin_ws
