@@ -2,7 +2,7 @@
 
 easy ROS installer. This do below.
 
-* install ROS
+* install ROS (Ubuntu18.04=melodic, Ubuntu20.04=noetic as default)
 * create catkin_ws
 * install catkin tools
 * update ~/.bashrc
