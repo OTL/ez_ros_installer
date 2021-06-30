@@ -1,6 +1,6 @@
 # ez_ros_installer
 
-easy ROS installer. This do below. (ROS noetic (python3) is not supported)
+easy ROS installer. This do below.
 
 * install ROS
 * create catkin_ws
@@ -9,7 +9,7 @@ easy ROS installer. This do below. (ROS noetic (python3) is not supported)
 
 After you run this script, you can start creating your program in ~/catkin_ws/src.
 
-### How to use
+## How to use
 
 ```bash
 wget https://raw.githubusercontent.com/OTL/ez_ros_installer/master/install.sh
@@ -17,7 +17,7 @@ chmod 755 install.sh
 ./install.sh
 ```
 
-### Options
+## Options
 
 You can set ROS distro (kinetic/lunar/...), install object (desktop-full/desktop/ros_comm/...), and
 catkin workspace (default ~/catkin_ws)
